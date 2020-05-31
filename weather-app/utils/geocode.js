@@ -8,8 +8,8 @@ const getGeoCode = (address, callback) => {
                 callback('Unable to fetch location. Try another location ', undefined);
             } else {
                 callback(undefined, {
-                    latitude: response.body.features[0].center[0],
-                    longitude: response.body.features[0].center[1],
+                    latitude: response.body.features[0].center[1],
+                    longitude: response.body.features[0].center[0],
                     location_name: response.body.features[0].place_name
                 });
             }
