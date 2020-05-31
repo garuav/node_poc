@@ -18,5 +18,5 @@ const url = "http://api.weatherstack.com/current?access_key=ec382bea358926841dad
 
 request({url: url, json: true }, (error, response) => {
     const data = response.body.current;
-    console.log(`It is currently ${data.temperature} degrees out. It feels like ${data.feelslike} degrees out.`);
+    console.log(`${data.weather_descriptions[0]} It is currently ${data.temperature} degrees out. It feels like ${data.feelslike} degrees out.`);
 })
