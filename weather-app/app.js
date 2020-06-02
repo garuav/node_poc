@@ -17,7 +17,7 @@ geoCode.getGeoCode('BTM Stage 1', (error, response ) => {
                 // console.log('forecasteResponse = ', forecasteResponse);
                 console.log(`${forecasteResponse.weather_descriptions[0]}. Temparature is ${forecasteResponse.temperature} degrees it feels like ${forecasteResponse.feelslike} degrees out.`);
 
-            }
+            
         })
     
 })
