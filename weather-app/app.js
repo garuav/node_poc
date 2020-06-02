@@ -6,7 +6,7 @@ const forecaste = require('./utils/forecaste');
 geoCode.getGeoCode('BTM Stage 1', (error, response ) => {
     if(error) {
        return  console.log('error = ', error);
-    } else {
+    }
         // console.log('response = ',response);
         console.log(`Location = ${response.location_name}. With latitude ${response.latitude} and longitude ${response.longitude}`);
 
@@ -19,6 +19,6 @@ geoCode.getGeoCode('BTM Stage 1', (error, response ) => {
 
             }
         })
-    }
+    
 })
 
