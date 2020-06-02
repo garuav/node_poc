@@ -13,7 +13,7 @@ geoCode.getGeoCode('BTM Stage 1', (error, response ) => {
         forecaste.getForecaste(response.latitude, response.longitude , (forecasteError, forecasteResponse ) => {
             if(error) {
                return  console.log('forecasteError = ', forecasteError);
-            } else {
+            } 
                 // console.log('forecasteResponse = ', forecasteResponse);
                 console.log(`${forecasteResponse.weather_descriptions[0]}. Temparature is ${forecasteResponse.temperature} degrees it feels like ${forecasteResponse.feelslike} degrees out.`);
 
