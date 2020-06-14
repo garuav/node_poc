@@ -6,12 +6,22 @@ const publicDirPath = path.join(__dirname,'../public');
 
 console.log('publicDirPath' ,publicDirPath);
 app.use(express.static(publicDirPath))
+app.set('view engine', 'hbs');
+
+
+app.get('' ,(req, res) => {
+    res.render('index', {
+        title: 'Index HBS file',
+        name: 'Gaurav'
+    })
+})
 
 
 app.get('/about', (req, res) => {
-    // console.log(req.query);
-    // res.send(publicDirPath.)
-    res.sendFile(publicDirPath+'/about.html')
+    
+    res.render('about', {
+        title: 'About Page HBS'
+    })
 });
 
 app.get('/weather', (req, res) => {
