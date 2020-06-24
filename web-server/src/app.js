@@ -14,8 +14,8 @@ hbs.registerPartials(partialsPath);
 
 app.get('' ,(req, res) => {
     res.render('index', {
-        title: 'Index HBS file',
-        name: 'Gaurav'
+        title: 'Index HBS ',
+        createdBy: 'Gaurav'
     })
 })
 
@@ -23,7 +23,16 @@ app.get('' ,(req, res) => {
 app.get('/about', (req, res) => {
     
     res.render('about', {
-        title: 'About Page HBS'
+        title: 'About Page ',
+        createdBy: 'Gaurav'
+    })
+});
+
+app.get('/help', (req, res) => {
+    
+    res.render('help', {
+        title: 'Help Page ',
+        createdBy: 'Gaurav'
     })
 });
 
