@@ -39,6 +39,19 @@ app.get('/help', (req, res) => {
 app.get('/weather', (req, res) => {
     res.send({location: 'BTM', forecaste: '27 degree C'})
 })
+app.get('/help/*', (req, res) => {
+    
+    res.render('404', {
+        title: 'Help Subroute not found ',
+        createdBy: 'Gaurav'
+    })
+});
+app.get('*' ,(req, res) => {
+    res.render('404', {
+        title: 'Page Not found ',
+        createdBy: 'Gaurav'
+    })
+})
 
 app.listen(3000, () => {
     console.log('Server is running in Port 3000');
