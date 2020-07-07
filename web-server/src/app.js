@@ -37,7 +37,14 @@ app.get('/help', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
-    res.send({location: 'BTM', forecaste: '27 degree C'})
+    if(!req.query.address) {
+        return res.send({
+            status: 'failure',
+            error: 'Please pass the address as that is mandatory'
+        });
+    }
+
+    res.send({location: req.query.address , forecaste: '27 degree C'});
 })
 app.get('/help/*', (req, res) => {
     
