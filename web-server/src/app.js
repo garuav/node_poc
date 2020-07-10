@@ -60,7 +60,6 @@ app.get('/weather', (req, res) => {
             })
         })
     })
-    // res.send({location: req.query.address , forecaste: '27 degree C'});
 })
 app.get('/help/*', (req, res) => {
     
