@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const hbs = require('hbs');
+const geocode = require('./utils/geocode');
+const forecaste = require('./utils/forecaste');
+
 // Define paths for Express config
 const publicDirPath = path.join(__dirname,'../public');
 const viewsPath = path.join(__dirname, '../templates/views');
@@ -43,8 +46,21 @@ app.get('/weather', (req, res) => {
             error: 'Please pass the address as that is mandatory'
         });
     }
-
-    res.send({location: req.query.address , forecaste: '27 degree C'});
+    geocode.getGeoCode(req.query.address, (error, {latitude, longitude, location}) => {
+        if(error) {
+            return res.send({error});
+        }
+        forecaste.getForecaste(latitude, longitude, (error, forecasteData) => {
+            if(error) {
+                return res.send({error});
+            }
+            return res.send({
+                forecaste: forecasteData,
+                address: req.query.address
+            })
+        })
+    })
+    // res.send({location: req.query.address , forecaste: '27 degree C'});
 })
 app.get('/help/*', (req, res) => {
     
