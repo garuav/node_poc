@@ -46,7 +46,7 @@ app.get('/weather', (req, res) => {
             error: 'Please pass the address as that is mandatory'
         });
     }
-    geocode.getGeoCode(req.query.address, (error, {latitude, longitude, location}) => {
+    geocode.getGeoCode(req.query.address, (error, {latitude, longitude, location} = {}) => {
         if(error) {
             return res.send({error});
         }
