@@ -4,12 +4,19 @@
         <title>Weather</title>
          <link rel="icon" href="/img/weather.png">
         <link rel="stylesheet" href="/css/styles.css">
-        <script src="/js/script.js"></script>
     </head>
     <body>
         <div class="main-content">
             {{>header}}
+
+            <form>
+                <input type="text" id="search-txt" placeholder="Search address">
+                <button type="submit" id="search-btn"> Search</button>
+                <p class="success-msg"></p>
+                <p class="error-msg"></p>
+            </form>
         </div>
        {{>footer}}
+        <script src="/js/script.js"></script>
     </body>
 </html>

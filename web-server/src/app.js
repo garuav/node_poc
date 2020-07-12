@@ -4,6 +4,7 @@ const app = express();
 const hbs = require('hbs');
 const geocode = require('./utils/geocode');
 const forecaste = require('./utils/forecaste');
+const port = process.env.PORT || 300;
 
 // Define paths for Express config
 const publicDirPath = path.join(__dirname,'../public');
@@ -46,17 +47,18 @@ app.get('/weather', (req, res) => {
             error: 'Please pass the address as that is mandatory'
         });
     }
-    geocode.getGeoCode(req.query.address, (error, {latitude, longitude, location} = {}) => {
+    geocode.getGeoCode(req.query.address, (error, {latitude, longitude, location_name} = {}) => {
         if(error) {
             return res.send({error});
         }
-        forecaste.getForecaste(latitude, longitude, (error, forecasteData) => {
+        forecaste.getForecaste(latitude, longitude, (error, forecastData) => {
             if(error) {
                 return res.send({error});
             }
             return res.send({
-                forecaste: forecasteData,
-                address: req.query.address
+                forecast: forecastData,
+                location: req.query.address,
+                locationDetails: location_name
             })
         })
     })
@@ -75,6 +77,6 @@ app.get('*' ,(req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is running in Port 3000');
+app.listen(port, () => {
+    console.log('Server is running in Port ' + port);
 }) 

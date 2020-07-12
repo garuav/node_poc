@@ -38,3 +38,20 @@ header a {
 .main-content {
  flex-grow: 1;
 }
+input{
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+button{
+    cursor: pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    color: #ffffff;
+    padding: 8px;
+}
+.success-msg{
+ color: #008000;
+}
+.error-msg {
+    color: #ff0000;
+}
